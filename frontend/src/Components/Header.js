@@ -15,7 +15,7 @@ export default function Header() {
             <NavLink to="/demo" activeClassName="active" className="nav-link">Demo</NavLink>
             <NavLink to="/resources" activeClassName="active" className="nav-link">Resources</NavLink>
             <NavLink to="/apidocs" activeClassName="active" className="nav-link">APIdocs</NavLink>
-            <NavLink to="https://github.com/shreya28302/video-call" activeClassName="active" className="nav-link">Github</NavLink>
+            <NavLink to="https://github.com/shreya28302/BTP" activeClassName="active" className="nav-link">Github</NavLink>
           </Nav>
         </Container>
       </Navbar>

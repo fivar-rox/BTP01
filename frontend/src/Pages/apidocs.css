@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+  }
+
+  /* Set the sidebar to occupy 20% of the width */
+  .sidebar {
+    width: 20%;
+    background-color: lightgray; /* Change the background color to your desired color */
+    padding: 20px;
+    position: relative
+  }
+
+  /* Set the main content area to occupy 80% of the width */
+  .content {
+    width: 80%;
+    padding: 20px;
+  }

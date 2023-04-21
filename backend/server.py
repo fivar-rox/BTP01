@@ -30,23 +30,23 @@ def get_mitigated():
         algorithm_name=request.json['algorithm']
         # balance,cost=run_algo(dataset_name,algorithm_name)
         if(algorithm_name=="MCF" and dataset_name=="bank"):
-            return [["balance", "cost"],["0.50", "7552.845887478441"]]
+            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
         elif(algorithm_name=="MCF" and dataset_name=="census"):
-            return [["balance", "cost"],["0.50", "7552.845887478441"]]
-        if(algorithm_name=="MCF" and dataset_name=="diabetes"):
-            return [["balance", "cost"],["0.50", "7552.845887478441"]]
-        if(algorithm_name=="Scalable" and dataset_name=="bank"):
-            return [["balance", "cost"],["0.50", "7552.845887478441"]]
-        if(algorithm_name=="Scalable" and dataset_name=="census"):
-            return [["balance", "cost"],["0.50", "7552.845887478441"]]
-        if(algorithm_name=="Scalable" and dataset_name=="diabetes"):
-            return [["balance", "cost"],["0.50", "7552.845887478441"]]
-        if(algorithm_name=="Hierarchial" and dataset_name=="bank"):
-            return [["balance", "cost"],["0.50", "7552.845887478441"]]
-        if(algorithm_name=="Hierarchial" and dataset_name=="census"):
-            return [["balance", "cost"],["0.50", "7552.845887478441"]]
-        if(algorithm_name=="Hierarchial" and dataset_name=="diabetes"):
-            return [["balance", "cost"],["0.50", "7552.845887478441"]]
+            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
+        elif(algorithm_name=="MCF" and dataset_name=="diabetes"):
+            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
+        elif(algorithm_name=="Scalable" and dataset_name=="bank"):
+            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
+        elif(algorithm_name=="Scalable" and dataset_name=="census"):
+            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
+        elif(algorithm_name=="Scalable" and dataset_name=="diabetes"):
+            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
+        elif(algorithm_name=="Hierarchial" and dataset_name=="bank"):
+            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
+        elif(algorithm_name=="Hierarchial" and dataset_name=="census"):
+            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
+        elif(algorithm_name=="Hierarchial" and dataset_name=="diabetes"):
+            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
         
 
 @app.route("/original", methods=["GET","POST"], strict_slashes=False)
@@ -56,10 +56,15 @@ def get_original():
        return [["accuracy"],["60"]]
 	   
     if(request.method == 'POST'):
-       dataset_name = request.json['dataset']
-       algorithm_name="kCenters"
-       # balance,cost=run_algo(dataset_name,algorithm_name)
-       return [["balance", "cost"],["0", "1990"]]
-  
+        dataset_name = request.json['dataset']     
+        algorithm_name="kCenters"
+        # balance,cost=run_algo(dataset_name,algorithm_name)
+        if(dataset_name=="bank"):
+            return [["balance", "cost", "description"],["0", "1990", "bad bad"]]
+        elif(dataset_name=="census"):
+            return [["balance", "cost", "description"],["0", "1990", "bad bad"]]
+        elif(dataset_name=="diabetes"):
+            return [["balance", "cost", "description"],["0", "1990", "bad bad"]]
+    
 if __name__ == '__main__':
 	app.run(debug=False)
