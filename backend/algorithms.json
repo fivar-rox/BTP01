@@ -1,0 +1,16 @@
+{
+    "algorithms" :[
+     {
+        "name":"MCF",
+        "description":"this is a fair algo"
+    },
+    {
+        "name":"Scalable",
+        "description":"this fair pro algo"
+    },
+    {
+        "name":"Hierarchial",
+        "description":"this fair pro 2 algo"
+    }
+   ]
+}

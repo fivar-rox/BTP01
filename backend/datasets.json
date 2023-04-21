@@ -1,0 +1,43 @@
+{
+       "datasets" :[
+        {
+            "name":"bank",
+            "description":"to predict if the client will subscribe a term deposit ",
+            "protectedAttributes":[
+                {
+                    "attributeName":"marital",
+                    "privileged":"married",
+                    "unprivileged":"unmarried"
+                },
+                {
+                    "attributeName":"gender",
+                    "privileged":"female",
+                    "unprivileged":"male"
+                }
+            ]
+        },
+        {
+            "name":"census",
+            "description":"about data 2",
+            "protectedAttributes":[
+                {
+                    "attributeName":"gender",
+                    "privileged":"female",
+                    "unprivileged":"male"
+                }
+            ]
+        },
+        {
+            "name":"diabetes",
+            "description":"about data 3",
+            "protectedAttributes":[
+                {
+                    "attributeName":"gender",
+                    "privileged":"female",
+                    "unprivileged":"male"
+                }
+            ]
+        } 
+]
+  
+}
