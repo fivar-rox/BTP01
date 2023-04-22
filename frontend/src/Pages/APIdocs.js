@@ -42,6 +42,9 @@ const Arrow = styled.span`
 
 const menus = [
   {
+    label: "API docs"
+  },
+  {
     label: "Algorithms",
     submenu: [
         {
@@ -59,10 +62,10 @@ const menus = [
             label: "In-processing",
             submenu: [
               {
-                label: "MCF"
+                label: "In1"
               },
               {
-                label: "Scalable"
+                label: "In2"
               }
             ]
           },
@@ -70,10 +73,10 @@ const menus = [
             label: "Post-processing",
             submenu: [
               {
-                label: "MCF"
+                label: "Post1"
               },
               {
-                label: "Scalable"
+                label: "Post2"
               }
             ]
           },
@@ -111,7 +114,7 @@ const menus = [
 
 export default function APIdocs() {
 
-  const [name, setName] = useState("");
+  const [name, setName] = useState("API docs");
   const [activeMenus, setActiveMenus] = useState([]);
 
   const handleMenuClick = (data, menuName) => {
@@ -141,7 +144,7 @@ export default function APIdocs() {
         <Label onClick={() => handleMenuClick(data, menuName)}>{data.label} </Label>
         {hasSubMenu && (
           <Arrow
-            onClick={() => handleArrowClick(menuName)}
+            onClick={() => handleMenuClick(data, menuName)}
             toggle={activeMenus.includes(menuName)}
           />
         )}
@@ -184,6 +187,10 @@ export default function APIdocs() {
     );
   };
 
+  const handleClick = (name) => {
+    setName(name)
+  }
+
   return (
     <div className="container">   
     <div className="sidebar">
@@ -207,73 +214,215 @@ export default function APIdocs() {
     </div>
     <div className="content">
     {
-        name === "" ? 
-        <h1>Docs</h1>
+        name === "API docs" ? 
+        <>
+        <h1>AI Fairness 360 documentation</h1>
+        <h4>Modules</h4>
+        <ul>
+        <li><button onClick = {() => handleClick("Algorithms")}>Algorithms</button></li>
+          <ul>
+          <li><button onClick = {() => handleClick("Pre-processing")}>algorithms.preprocessing</button></li>
+          <li><button onClick = {() => handleClick("In-processing")}>algorithms.inprocessing</button></li>
+          <li><button onClick = {() => handleClick("Post-processing")}>algorithms.postprocessing</button></li>
+          </ul>
+        <li><button onClick = {() => handleClick("Datasets")}>Datasets</button></li>
+          <ul>
+          <li><button onClick = {() => handleClick("bank")}>datasets.bank</button></li>
+          <li><button onClick = {() => handleClick("census")}>datasets.census</button></li>
+          <li><button onClick = {() => handleClick("diabetes")}>datasets.diabetes</button></li>
+          </ul>
+        <li><button onClick = {() => handleClick("Metrics")}>Metrics</button></li>
+          <ul>
+          <li><button onClick = {() => handleClick("balance")}>metrics.balance</button></li>
+          <li><button onClick = {() => handleClick("cost")}>metrics.cost</button></li>
+          </ul>
+        <li><button onClick = {() => handleClick("Explainers")}>Explainers</button></li>
+        </ul>
+        </>
         : null
     }
     { 
         name === "Algorithms" ? 
+        <>
         <h1>Algorithms</h1>
+        <h4><button onClick = {() => handleClick("Pre-processing")}>algorithms.preprocessing</button></h4>
+        <table border = "1" cellpadding = "5" cellspacing = "5">
+          <tr>
+            <td><button onClick = {() => handleClick("MCF")}>MCF</button></td>
+            <td>Description</td>
+          </tr>
+          <tr>
+            <td><button onClick = {() => handleClick("Scalable")}>Scalable</button></td>
+            <td>Description</td>
+          </tr>
+        </table>
+        <h4><button onClick = {() => handleClick("In-processing")}>algorithms.inprocessing</button></h4>
+        <table border = "1" cellpadding = "5" cellspacing = "5">
+          <tr>
+            <td><button onClick = {() => handleClick("In1")}>In1</button></td>
+            <td>Description</td>
+          </tr>
+          <tr>
+            <td><button onClick = {() => handleClick("In2")}>In2</button></td>
+            <td>Description</td>
+          </tr>
+        </table>
+        <h4><button onClick = {() => handleClick("Post-processing")}>algorithms.postprocessing</button></h4>
+        <table border = "1" cellpadding = "5" cellspacing = "5">
+          <tr>
+            <td><button onClick = {() => handleClick("Post1")}>Post1</button></td>
+            <td>Description</td>
+          </tr>
+          <tr>
+            <td><button onClick = {() => handleClick("Post2")}>Post2</button></td>
+            <td>Description</td>
+          </tr>
+        </table>
+        </>
         : null
     }
     { 
         name === "Pre-processing" ? 
-        <h1>Algorithms.pre-processing</h1>
+        <>
+        <h1>algorithms.preprocessing</h1>
+        <table border = "1" cellpadding = "5" cellspacing = "5">
+          <tr>
+            <td><button onClick = {() => handleClick("MCF")}>MCF</button></td>
+            <td>Description</td>
+          </tr>
+          <tr>
+            <td><button onClick = {() => handleClick("Scalable")}>Scalable</button></td>
+            <td>Description</td>
+          </tr>
+        </table>
+        </>
         : null
     }
     { 
         name === "MCF" ? 
-        <h1>Algorithms.pre-processing.MCF</h1>
+        <h1>algorithms.preprocessing.MCF</h1>
         : null
     }
     { 
         name === "Scalable" ? 
-        <h1>Algorithms.pre-processing.Scalable</h1>
+        <h1>algorithms.preprocessing.Scalable</h1>
         : null
     }
     { 
         name === "In-processing" ? 
-        <h1>Algorithms.in-processing</h1>
+        <>
+        <h1>algorithms.inprocessing</h1>
+        <table border = "1" cellpadding = "5" cellspacing = "5">
+          <tr>
+            <td><button onClick = {() => handleClick("In1")}>In1</button></td>
+            <td>Description</td>
+          </tr>
+          <tr>
+            <td><button onClick = {() => handleClick("In2")}>In2</button></td>
+            <td>Description</td>
+          </tr>
+        </table>
+        </>
+        : null
+    }
+    { 
+        name === "In1" ? 
+        <h1>algorithms.inprocessing.In1</h1>
+        : null
+    }
+    { 
+        name === "In2" ? 
+        <h1>algorithms.inprocessing.In2</h1>
         : null
     }
     { 
         name === "Post-processing" ? 
-        <h1>Algorithms.post-processing</h1>
+        <>
+        <h1>algorithms.postprocessing</h1>
+        <table border = "1" cellpadding = "5" cellspacing = "5">
+          <tr>
+            <td><button onClick = {() => handleClick("Post1")}>Post1</button></td>
+            <td>Description</td>
+          </tr>
+          <tr>
+            <td><button onClick = {() => handleClick("Post2")}>Post2</button></td>
+            <td>Description</td>
+          </tr>
+        </table>
+        </>
+        : null
+    }
+    { 
+        name === "Post1" ? 
+        <h1>algorithms.postprocessing.Post1</h1>
+        : null
+    }
+    { 
+        name === "Post2" ? 
+        <h1>algorithms.postprocessing.Post2</h1>
         : null
     }
     { 
         name === "Datasets" ? 
+        <>
         <h1>Datasets</h1>
+        <table border = "1" cellpadding = "5" cellspacing = "5">
+          <tr>
+            <td><button onClick = {() => handleClick("bank")}>bank</button></td>
+            <td>Description</td>
+          </tr>
+          <tr>
+            <td><button onClick = {() => handleClick("census")}>census</button></td>
+            <td>Description</td>
+          </tr>
+          <tr>
+            <td><button onClick = {() => handleClick("diabetes")}>diabetes</button></td>
+            <td>Description</td>
+          </tr>
+        </table>
+        </>
         : null
     }
     { 
         name === "bank" ? 
-        <h1>Datasets.bank</h1>
+        <h1>datasets.bank</h1>
         : null
     }
     { 
         name === "census" ? 
-        <h1>Datasets.census</h1>
+        <h1>datasets.census</h1>
         : null
     }
     { 
         name === "diabetes" ? 
-        <h1>Datasets.diabetes</h1>
+        <h1>datasets.diabetes</h1>
         : null
     }
     { 
         name === "Metrics" ? 
+        <>
         <h1>Metrics</h1>
+        <table border = "1" cellpadding = "5" cellspacing = "5">
+          <tr>
+            <td><button onClick = {() => handleClick("balance")}>balance</button></td>
+            <td>Description</td>
+          </tr>
+          <tr>
+            <td><button onClick = {() => handleClick("cost")}>cost</button></td>
+            <td>Description</td>
+          </tr>
+        </table>
+        </>
         : null
     }
     { 
         name === "balance" ? 
-        <h1>Metrics.balance</h1>
+        <h1>metrics.balance</h1>
         : null
     }
     { 
         name === "cost" ? 
-        <h1>Metrics.cost</h1>
+        <h1>metrics.cost</h1>
         : null
     }
     { 
