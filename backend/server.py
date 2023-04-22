@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 import json
-from run.run import run_algo
+from run.run_binary import run_algo as run_binary
+from run.run_nonbinary import run_algo as run_nonbinary
 
 app = Flask(__name__)
 
@@ -28,43 +29,71 @@ def get_mitigated():
     if(request.method == 'POST'):
         dataset_name = request.json['dataset']
         algorithm_name=request.json['algorithm']
-        # balance,cost=run_algo(dataset_name,algorithm_name)
+
         if(algorithm_name=="MCF" and dataset_name=="bank"):
-            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
+            # balance,cost=run_algo(dataset_name,algorithm_name)
+            return [{"name":"balance", "value":"0.50", "description":"hmm"},
+                    {"name":"cost", "value":"7552.845887478441", "description":"hmm"}]
         elif(algorithm_name=="MCF" and dataset_name=="census"):
-            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
-        elif(algorithm_name=="MCF" and dataset_name=="diabetes"):
-            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
+            # balance,cost=run_algo(dataset_name,algorithm_name)
+            return [{"name":"balance", "value":"0.50", "description":"hmm"},
+                    {"name":"cost", "value":"7552.845887478441", "description":"hmm"}]
+        elif(algorithm_name=="MCF" and dataset_name=="diabetes full"):
+            # balance,cost=run_algo(dataset_name,algorithm_name)
+            return [{"name":"balance", "value":"0.50", "description":"hmm"},
+                    {"name":"cost", "value":"7552.845887478441", "description":"hmm"}]
         elif(algorithm_name=="Scalable" and dataset_name=="bank"):
-            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
+            # balance,cost=run_algo(dataset_name,algorithm_name)
+            return [{"name":"balance", "value":"0.50", "description":"hmm"},
+                    {"name":"cost", "value":"7552.845887478441", "description":"hmm"}]
         elif(algorithm_name=="Scalable" and dataset_name=="census"):
-            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
-        elif(algorithm_name=="Scalable" and dataset_name=="diabetes"):
-            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
-        elif(algorithm_name=="Hierarchial" and dataset_name=="bank"):
-            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
-        elif(algorithm_name=="Hierarchial" and dataset_name=="census"):
-            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
-        elif(algorithm_name=="Hierarchial" and dataset_name=="diabetes"):
-            return [["balance", "cost", "description"],["0.50", "7552.845887478441", "OK"]]
+            # balance,cost=run_algo(dataset_name,algorithm_name)
+            return [{"name":"balance", "value":"0.50", "description":"hmm"},
+                    {"name":"cost", "value":"7552.845887478441", "description":"hmm"}]
+        elif(algorithm_name=="Scalable" and dataset_name=="diabetes full"):
+            # balance,cost=run_algo(dataset_name,algorithm_name)
+            return [{"name":"balance", "value":"0.50", "description":"hmm"},
+                    {"name":"cost", "value":"7552.845887478441", "description":"hmm"}]
+        elif(algorithm_name=="Proportionality" and dataset_name=="diabetes"):
+            # cost,rho=run_algo(dataset_name,algorithm_name)
+            return [{"name":"cost", "value":"7552.845887478441", "description":"hmm"},
+                    {"name":"rho", "value":"1.04", "description":"hmm"}]
+        elif(algorithm_name=="Proportionality" and dataset_name=="iris"):
+            # cost,rho=run_algo(dataset_name,algorithm_name)
+            return [{"name":"cost", "value":"7552.845887478441", "description":"hmm"},
+                    {"name":"rho", "value":"1.04", "description":"hmm"}]
         
 
 @app.route("/original", methods=["GET","POST"], strict_slashes=False)
 def get_original():   
     if(request.method == 'GET'):
-       balance,cost=run_algo("bank","Scalable")
+
        return [["accuracy"],["60"]]
 	   
     if(request.method == 'POST'):
         dataset_name = request.json['dataset']     
-        algorithm_name="kCenters"
-        # balance,cost=run_algo(dataset_name,algorithm_name)
+        algorithm_name="unfair"
+        
         if(dataset_name=="bank"):
-            return [["balance", "cost", "description"],["0", "1990", "bad bad"]]
+            # balance,cost=run_binary(dataset_name,algorithm_name)
+            return [{"name":"balance", "value":"0", "description":"hmm"},
+                    {"name":"cost", "value":"1990", "description":"hmm"}]
         elif(dataset_name=="census"):
-            return [["balance", "cost", "description"],["0", "1990", "bad bad"]]
+            # balance,cost=run_binary(dataset_name,algorithm_name)
+            return [{"name":"balance", "value":"0", "description":"hmm"},
+                    {"name":"cost", "value":"1990", "description":"hmm"}]
+        elif(dataset_name=="diabetes full"):
+            # balance,cost=run_binary(dataset_name,algorithm_name)
+            return [{"name":"balance", "value":"0", "description":"hmm"},
+                    {"name":"cost", "value":"1990", "description":"hmm"}]
         elif(dataset_name=="diabetes"):
-            return [["balance", "cost", "description"],["0", "1990", "bad bad"]]
+            # cost,rho=run_nonbinary(dataset_name,algorithm_name)
+            return [{"name":"cost", "value":"1990", "description":"hmm"},
+                    {"name":"rho", "value":"1.01", "description":"hmm"}]
+        elif(dataset_name=="iris"):
+            # cost,rho=run_nonbinary(dataset_name,algorithm_name)
+            return [{"name":"cost", "value":"1990", "description":"hmm"},
+                    {"name":"rho", "value":"1.01", "description":"hmm"}]
     
 if __name__ == '__main__':
 	app.run(debug=False)

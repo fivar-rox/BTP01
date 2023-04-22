@@ -12,6 +12,7 @@ export default function Data() {
         dataset = {
             "name":"",
             "description":"",
+            "type":"",
             "protectedAttributes":[]
         }
     }
@@ -79,6 +80,10 @@ export default function Data() {
                             <div style={{marginLeft: "25px"}}>
                             {data.description}
                             <br/>
+                            {data.type}
+                            <br/>
+                            {data.type === "binary" ? 
+                            <>
                             Protected Attributes
                             <br/>
                             { 
@@ -91,6 +96,9 @@ export default function Data() {
                                     )
                                 })
                             }
+                            </>
+                            : null}
+                            
                             <br/>
                             </div>
                         </div>

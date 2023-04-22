@@ -77,23 +77,25 @@ export default function Check() {
             Mitigation: none
             </div>
             <div style={{paddingLeft: 30, marginTop: 30}}>
-                <b>{results[0][0]}</b>
+                <b>{results[0].name}</b>
                 <br/>
                 <BarChart 
                   width={190}
                   height={180}
                   margin={margin}
-                  data={[{text: 'Unfair', value: results[1][0]}]}
+                  data={[{text: 'Unfair', value: results[0].value}]}
                   />
+                {results[0].description}
                 <br/>
-                <b>{results[0][1]}</b>
+                <b>{results[1].name}</b>
                 <br/>
                 <BarChart 
                   width={190}
                   height={180}
                   margin={margin}
-                  data={[{text: 'Unfair', value: results[1][1]}]}
+                  data={[{text: 'Unfair', value: results[1].value}]}
                   />
+                {results[1].description}
             </div>
             </>
             }

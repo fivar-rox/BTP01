@@ -3,6 +3,7 @@
         {
             "name":"bank",
             "description":"to predict if the client will subscribe a term deposit ",
+            "type":"binary",
             "protectedAttributes":[
                 {
                     "attributeName":"marital",
@@ -18,6 +19,7 @@
         },
         {
             "name":"census",
+            "type":"binary",
             "description":"about data 2",
             "protectedAttributes":[
                 {
@@ -28,8 +30,9 @@
             ]
         },
         {
-            "name":"diabetes",
+            "name":"diabetes full",
             "description":"about data 3",
+            "type":"binary",
             "protectedAttributes":[
                 {
                     "attributeName":"gender",
@@ -37,6 +40,16 @@
                     "unprivileged":"male"
                 }
             ]
+        } ,
+        {
+            "name":"Iris",
+            "description":"about data 4",
+            "type":"nonbinary"
+        } ,
+        {
+            "name":"diabetes",
+            "description":"about data 5",
+            "type":"nonbinary"
         } 
 ]
   

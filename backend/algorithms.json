@@ -2,15 +2,18 @@
     "algorithms" :[
      {
         "name":"MCF",
-        "description":"this is a fair algo"
+        "description":"this is a fair algo",
+        "type":"binary"
     },
     {
         "name":"Scalable",
-        "description":"this fair pro algo"
+        "description":"this fair pro algo",
+        "type":"binary"
     },
     {
-        "name":"Hierarchial",
-        "description":"this fair pro 2 algo"
+        "name":"Proportionality",
+        "description":"this fair pro 2 algo",
+        "type":"nonbinary"
     }
    ]
 }

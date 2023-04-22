@@ -14,6 +14,7 @@ export default function Mitigate() {
         algorithm = {
             "name":"",
             "description":"",
+            "type":""
         }
     }
 
@@ -71,17 +72,39 @@ export default function Mitigate() {
             <b>3. Choose Bias Mitigation Algorithm</b>            
             <br/>
             <RadioGroup onChange={(e) => handleOnChange(e)}>
-            { algorithms && algorithms.map(algo => {
-                return (
-                <div key={algo.name} className="radio-button-background">
-                    <Radio key={algo.name} value={algo.name} className="radio-button" checked={algo.name === selectedAlgorithm.name} style={{marginRight: "10px"}}/>{algo.name}
-                    <div style={{marginLeft: "25px", marginBottom: "10px"}}>
-                    {algo.description}
+            {dataset.type === "nonbinary" ?
+
+                algorithms && algorithms.filter(algo => {
+                    return algo.type === "nonbinary"
+                }).map(algo => {
+                    return (
+                    <div key={algo.name} className="radio-button-background">
+                        <Radio key={algo.name} value={algo.name} className="radio-button" checked={algo.name === selectedAlgorithm.name} style={{marginRight: "10px"}}/>{algo.name}
+                        <div style={{marginLeft: "25px", marginBottom: "10px"}}>
+                        {algo.description}
+                        </div>
                     </div>
-                </div>
-                )
+                    )
+                })
+                
+                :
+
+                algorithms && algorithms.filter(algo => {
+                    return algo.type === "binary"
+                }).map(algo => {
+                    return (
+                    <div key={algo.name} className="radio-button-background">
+                        <Radio key={algo.name} value={algo.name} className="radio-button" checked={algo.name === selectedAlgorithm.name} style={{marginRight: "10px"}}/>{algo.name}
+                        <div style={{marginLeft: "25px", marginBottom: "10px"}}>
+                        {algo.description}
+                        </div>
+                    </div>
+                    )
+                })
+                
+
             }
-            )}
+                
             </RadioGroup>
             </div>
         </>
