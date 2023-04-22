@@ -44,12 +44,14 @@ def convert_to_num(line_data, convert_map):
         modified_data.append(convert_map[i][line_data[i]])
     return modified_data
 
-def parse_data(file_name, max_item = 100000, scale = False):
+def parse_data(dataset_name, max_item = 100000, scale = False):
     # Parse the data in .csv file into two data formats
     # 1. data_list: list of data_pt
     # 2. kmeans_fmt_data_list: list of coordinates (i.e. a double list
     data_list = []
     convert_map = []
+    file_name='./data/'+dataset_name+'.csv'
+    print(file_name)
     with open(file_name) as f:
         content = f.readlines()
         kmeans_fmt_data_list = []

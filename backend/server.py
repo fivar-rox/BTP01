@@ -24,7 +24,8 @@ def get_algorithms():
 def get_mitigated():
     print("working")
     if(request.method == 'GET'):
-       return [["accuracy"],["60"]]
+        #cost,rho=run_nonbinary("Iris","Proportionality")
+        return [["accuracy"],["60"]]
         
     if(request.method == 'POST'):
         dataset_name = request.json['dataset']
@@ -59,7 +60,7 @@ def get_mitigated():
             return [{"name":"cost", "value":"7552.845887478441", "description":"hmm"},
                     {"name":"rho", "value":"1.04", "description":"hmm"}]
         elif(algorithm_name=="Proportionality" and dataset_name=="iris"):
-            # cost,rho=run_algo(dataset_name,algorithm_name)
+            #cost,rho=run_nonbinary(dataset_name,algorithm_name)
             return [{"name":"cost", "value":"7552.845887478441", "description":"hmm"},
                     {"name":"rho", "value":"1.04", "description":"hmm"}]
         
@@ -67,8 +68,9 @@ def get_mitigated():
 @app.route("/original", methods=["GET","POST"], strict_slashes=False)
 def get_original():   
     if(request.method == 'GET'):
-
-       return [["accuracy"],["60"]]
+        cost,rho=run_nonbinary("Iris","unfair")
+        return [["accuracy"],["60"]]
+       
 	   
     if(request.method == 'POST'):
         dataset_name = request.json['dataset']     
