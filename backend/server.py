@@ -63,16 +63,13 @@ def get_mitigated():
             return [{"name":"balance", "value":"0.50"},
                     {"name":"kcenter cost", "value":"7552.845887478441"}]
         elif(algorithm_name=="Proportionality" and dataset_name=="diabetes"):
-            # cost,rho=run_algo(dataset_name,algorithm_name)
+            # cost,rho=run_nonbinary(dataset_name,algorithm_name)
             return [{"name":"kmeans cost", "value":"7552.845887478441"},
                     {"name":"proportionality (rho)", "value":"1.04"}]
         elif(algorithm_name=="Proportionality" and dataset_name=="iris"):
-            # cost,rho=run_algo(dataset_name,algorithm_name)
+            # cost,rho=run_nonbinary(dataset_name,algorithm_name)
             return [{"name":"kmeans cost", "value":"7552.845887478441"},
                     {"name":"proportionality (rho)", "value":"1.04"}]
-            #cost,rho=run_nonbinary(dataset_name,algorithm_name)
-            return [{"name":"cost", "value":"7552.845887478441", "description":"hmm"},
-                    {"name":"rho", "value":"1.04", "description":"hmm"}]
         
 
 @app.route("/original", methods=["GET","POST"], strict_slashes=False)
