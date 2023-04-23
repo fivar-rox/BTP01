@@ -71,8 +71,8 @@ export default function Home() {
                     <li className="cards_item">
                     <div className="card">
                         <div className="card_content">
-                        <h2 className="card_title">MCF Fiarlet Decomposition</h2>
-                        <p className="card_text">Computes the optimized version of fairlet decomposition using minimum-cost flow.</p>
+                        <h2 className="card_title">MCF</h2>
+                        <p className="card_text">Scalable algorithm for fair clustering, which can efficiently handle large datasets. uses techniques such as resampling, re-weighting, re-ranking, and parallel processing to ensure fairness in cluster compositions while addressing scalability challenges.</p>
                         <button className="btn card_btn">See More</button>
                         </div>
                     </div>
@@ -80,8 +80,8 @@ export default function Home() {
                     <li className="cards_item">
                     <div className="card">
                         <div className="card_content">
-                        <h2 className="card_title">FairletDecomposition</h2>
-                        <p className="card_text"> Computes vanilla fairlet decomposition that ensures fair clusters. It might not give the optimal cost value.</p>
+                        <h2 className="card_title">Scalable</h2>
+                        <p className="card_text">This Algorithm proposes a fairness notion called proportionality fairness. Aims to ensure that each cluster contains a proportionate representation of different sensitive attribute groups. uses fairness constraints and optimization techniques to achieve proportionality fairness in cluster compositions.</p>
                         <button className="btn card_btn">See More</button>
                         </div>
                     </div>
@@ -90,8 +90,8 @@ export default function Home() {
                     <li className="cards_item">
                     <div className="card">
                         <div className="card_content">
-                        <h2 className="card_title">MCF Fiarlet Decomposition</h2>
-                        <p className="card_text">Computes the optimized version of fairlet decomposition using minimum-cost flow.</p>
+                        <h2 className="card_title">Proportionality</h2>
+                        <p className="card_text">This Algorithm introduces the concept of fairlets, which are subsets of data points that can be used to achieve fairness in clustering. It proposes a two-step approach where initial clusters are formed using a base clustering algorithm, followed by refining the clusters to satisfy fairness constraints based on fairlets.</p>
                         <button className="btn card_btn">See More</button>
                         </div>
                     </div>
@@ -112,7 +112,7 @@ export default function Home() {
                     <div className="card">
                         <div className="card_content">
                         <h2 className="card_title">Balance</h2>
-                        <p className="card_text">minimum ratio between protected group members in a cluster and protected group membersin the dataset, measured over a;; groups and clusters</p>
+                        <p className="card_text">Minimum ratio between protected group members in a cluster and protected group members in the data set, measured over all groups and clusters.</p>
                         <button className="btn card_btn">See More</button>
                         </div>
                     </div>
@@ -120,18 +120,8 @@ export default function Home() {
                     <li className="cards_item">
                     <div className="card">
                         <div className="card_content">
-                        <h2 className="card_title"> Social Fairness Cost</h2>
-                        <p className="card_text"> minimum average center based clustering costs for each protected group, ensures nearby clusters are similar and a representative exists that accurately potrays the cluster</p>
-                        <button className="btn card_btn">See More</button>
-                        </div>
-                    </div>
-                    
-                    </li>
-                    <li className="cards_item">
-                    <div className="card">
-                        <div className="card_content">
-                        <h2 className="card_title"> Bounded Representation cost</h2>
-                        <p className="card_text"> Clustering algorithm is constrained by two parameters that define the allowed maximum and minimum proportions of protected group members in a cluster.</p>
+                        <h2 className="card_title">Kmeans Cost</h2>
+                        <p className="card_text"> Sum of the minimum of the distances squared to the cluster centers.</p>
                         <button className="btn card_btn">See More</button>
                         </div>
                     </div>
@@ -140,8 +130,28 @@ export default function Home() {
                     <li className="cards_item">
                     <div className="card">
                         <div className="card_content">
-                        <h2 className="card_title"> Proportionality</h2>
-                        <p className="card_text"> For n samples and k clsuters, any n/k points are entitled to form thier own cluster if there is another center that is closer in distance for all n/k points.</p>
+                        <h2 className="card_title">Kcenter Cost</h2>
+                        <p className="card_text"> Maximum of the minimum distance between any data point to the cluster center.</p>
+                        <button className="btn card_btn">See More</button>
+                        </div>
+                    </div>
+                    
+                    </li>
+                    <li className="cards_item">
+                    <div className="card">
+                        <div className="card_content">
+                        <h2 className="card_title">Kmedian Cost</h2>
+                        <p className="card_text"> Sum of the minimum of the distances to the cluster centers.</p>
+                        <button className="btn card_btn">See More</button>
+                        </div>
+                    </div>
+                    
+                    </li>
+                    <li className="cards_item">
+                    <div className="card">
+                        <div className="card_content">
+                        <h2 className="card_title">Proportionality</h2>
+                        <p className="card_text"> For n samples and k clusters, any n/k points are entitled to form their own cluster if there is another center that is closer in distance for all n/k points. Higher proportionality leads to high fairness.</p>
                         <button className="btn card_btn">See More</button>
                         </div>
                     </div>

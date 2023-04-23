@@ -68,7 +68,7 @@ export default function Data() {
            
             
          
-            <div style={{padding: "20px"}}>
+            <div style={{padding: "20px", width:"70%"}}>
             <b>1. Choose sample data set</b>
             <br/>
             <RadioGroup onChange={(e) => handleOnChange(e)}>
@@ -78,19 +78,19 @@ export default function Data() {
                         <div key={data.name} className="radio-button-background">
                             <Radio key={data.name} value={data.name} className="radio-button" checked={data.name === selectedDataset.name} style={{marginRight: "10px"}}/><b>{data.name}</b>
                             <div style={{marginLeft: "25px"}}>
-                            {data.description}
+                            type - {data.type}
                             <br/>
-                            {data.type}
+                            description - {data.description}
                             <br/>
                             {data.type === "binary" ? 
                             <>
                             Protected Attributes
                             <br/>
                             { 
-                                data.protectedAttributes && data.protectedAttributes.map(att => {
+                                data.protectedAttributes && data.protectedAttributes.map((att,i) => {
                                     return (
                                         <div key={att.attributeName}>
-                                        {att.attributeName}, privileged - {att.privileged}, unprivileged - {att.unprivileged} 
+                                        {i+1}. {att.attributeName}, privileged - {att.privileged}, unprivileged - {att.unprivileged} 
                                         <br/>
                                         </div>
                                     )

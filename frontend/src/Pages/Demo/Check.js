@@ -70,7 +70,7 @@ export default function Check() {
         </div>
         </div>
        
-            <div style={{padding: "20px"}}>
+            <div style={{padding: "20px", width:"70%"}}>
             <b>2. Check bias metrics</b>
             <br/>
             {loading ? 

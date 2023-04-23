@@ -13,6 +13,7 @@ export default function Mitigate() {
     if (algorithm === null) {
         algorithm = {
             "name":"",
+            "pipeline":"",
             "description":"",
             "type":""
         }
@@ -68,7 +69,7 @@ export default function Mitigate() {
         </div>
         </div>
         
-            <div style={{padding: "20px"}}>
+            <div style={{padding: "20px", width:"70%"}}>
             <b>3. Choose Bias Mitigation Algorithm</b>            
             <br/>
             <RadioGroup onChange={(e) => handleOnChange(e)}>
@@ -81,7 +82,10 @@ export default function Mitigate() {
                     <div key={algo.name} className="radio-button-background">
                         <Radio key={algo.name} value={algo.name} className="radio-button" checked={algo.name === selectedAlgorithm.name} style={{marginRight: "10px"}}/><b>{algo.name}</b>
                         <div style={{marginLeft: "25px", marginBottom: "10px"}}>
-                        {algo.description}
+                        type - {algo.pipeline}
+                        <br/>
+                        description - {algo.description}
+                        <br/>
                         </div>
                     </div>
                     )
@@ -96,7 +100,10 @@ export default function Mitigate() {
                     <div key={algo.name} className="radio-button-background">
                         <Radio key={algo.name} value={algo.name} className="radio-button" checked={algo.name === selectedAlgorithm.name} style={{marginRight: "10px"}}/><b>{algo.name}</b>
                         <div style={{marginLeft: "25px", marginBottom: "10px"}}>
-                        {algo.description}
+                        type - {algo.pipeline}
+                        <br/>
+                        description - {algo.description}
+                        <br/>
                         </div>
                     </div>
                     )
