@@ -245,7 +245,7 @@ export default function APIdocs() {
         name === "Algorithms" ? 
         <>
         <h1>Algorithms</h1>
-        <h4><button onClick = {() => handleClick("Pre-processing")}>algorithms.preprocessing</button></h4>
+        <h4 style={{padding:"10px", paddingTop:"20px"}}><button onClick = {() => handleClick("Pre-processing")}>algorithms.preprocessing</button></h4>
         <table border = "1" cellpadding = "5" cellspacing = "5">
           <tr>
             <td><button onClick = {() => handleClick("MCF")}>MCF</button></td>
@@ -256,7 +256,7 @@ export default function APIdocs() {
             <td>Description</td>
           </tr>
         </table>
-        <h4><button onClick = {() => handleClick("In-processing")}>algorithms.inprocessing</button></h4>
+        <h4 style={{padding:"10px", paddingTop:"20px"}}><button onClick = {() => handleClick("In-processing")}>algorithms.inprocessing</button></h4>
         <table border = "1" cellpadding = "5" cellspacing = "5">
           <tr>
             <td><button onClick = {() => handleClick("In1")}>In1</button></td>
@@ -267,7 +267,7 @@ export default function APIdocs() {
             <td>Description</td>
           </tr>
         </table>
-        <h4><button onClick = {() => handleClick("Post-processing")}>algorithms.postprocessing</button></h4>
+        <h4 style={{padding:"10px", paddingTop:"20px"}}><button onClick = {() => handleClick("Post-processing")}>algorithms.postprocessing</button></h4>
         <table border = "1" cellpadding = "5" cellspacing = "5">
           <tr>
             <td><button onClick = {() => handleClick("Post1")}>Post1</button></td>

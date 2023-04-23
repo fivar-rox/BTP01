@@ -81,7 +81,7 @@ export default function Compare() {
         </div>
         </div>
            
-            <div style={{padding: "20px"}}>
+            <div style={{padding: "20px", width:"70%"}}>
             <b>4. Compare original vs. mitigated results</b>
             <br/>
             {loading ? 

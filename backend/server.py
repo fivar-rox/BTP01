@@ -39,37 +39,37 @@ def get_mitigated():
         algorithm_name=request.json['algorithm']
 
         if(algorithm_name=="MCF" and dataset_name=="bank"):
-            # balance,cost=run_algo(dataset_name,algorithm_name)
+            # balance,cost=run_binary(dataset_name,algorithm_name)
             return [{"name":"balance", "value":"0.50"},
                     {"name":"kcenter cost", "value":"7552.845887478441"}]
         elif(algorithm_name=="MCF" and dataset_name=="census"):
-            # balance,cost=run_algo(dataset_name,algorithm_name)
+            # balance,cost=run_binary(dataset_name,algorithm_name)
             return [{"name":"balance", "value":"0.50"},
                     {"name":"kcenter cost", "value":"7552.845887478441"}]
         elif(algorithm_name=="MCF" and dataset_name=="diabetes full"):
-            # balance,cost=run_algo(dataset_name,algorithm_name)
+            # balance,cost=run_binary(dataset_name,algorithm_name)
             return [{"name":"balance", "value":"0.50"},
                     {"name":"kcenter cost", "value":"7552.845887478441"}]
         elif(algorithm_name=="Scalable" and dataset_name=="bank"):
-            # balance,cost=run_algo(dataset_name,algorithm_name)
+            # balance,cost=run_binary(dataset_name,algorithm_name)
             return [{"name":"balance", "value":"0.50"},
                     {"name":"kcenter cost", "value":"7552.845887478441"}]
         elif(algorithm_name=="Scalable" and dataset_name=="census"):
-            # balance,cost=run_algo(dataset_name,algorithm_name)
+            # balance,cost=run_binary(dataset_name,algorithm_name)
             return [{"name":"balance", "value":"0.50"},
                     {"name":"kcenter cost", "value":"7552.845887478441"}]
         elif(algorithm_name=="Scalable" and dataset_name=="diabetes full"):
-            # balance,cost=run_algo(dataset_name,algorithm_name)
+            # balance,cost=run_binary(dataset_name,algorithm_name)
             return [{"name":"balance", "value":"0.50"},
                     {"name":"kcenter cost", "value":"7552.845887478441"}]
         elif(algorithm_name=="Proportionality" and dataset_name=="diabetes"):
             # cost,rho=run_nonbinary(dataset_name,algorithm_name)
-            return [{"name":"kmeans cost", "value":"7552.845887478441"},
-                    {"name":"proportionality (rho)", "value":"1.04"}]
+            return [{"name":"kmeans cost", "value":"8499.96"},
+                    {"name":"proportionality (rho)", "value":"1.4"}]
         elif(algorithm_name=="Proportionality" and dataset_name=="iris"):
             # cost,rho=run_nonbinary(dataset_name,algorithm_name)
-            return [{"name":"kmeans cost", "value":"7552.845887478441"},
-                    {"name":"proportionality (rho)", "value":"1.04"}]
+            return [{"name":"kmeans cost", "value":"8499.96"},
+                    {"name":"proportionality (rho)", "value":"1.4"}]
         
 
 @app.route("/original", methods=["GET","POST"], strict_slashes=False)
@@ -85,23 +85,23 @@ def get_original():
         
         if(dataset_name=="bank"):
             # balance,cost=run_binary(dataset_name,algorithm_name)
-            return [{"name":"balance", "value":"0"},
+            return [{"name":"balance", "value":"0.1"},
                     {"name":"kcenter cost", "value":"1990"}]
         elif(dataset_name=="census"):
             # balance,cost=run_binary(dataset_name,algorithm_name)
-            return [{"name":"balance", "value":"0"},
+            return [{"name":"balance", "value":"0.1"},
                     {"name":"kcenter cost", "value":"1990"}]
         elif(dataset_name=="diabetes full"):
             # balance,cost=run_binary(dataset_name,algorithm_name)
-            return [{"name":"balance", "value":"0"},
+            return [{"name":"balance", "value":"0.1"},
                     {"name":"kcenter cost", "value":"1990"}]
         elif(dataset_name=="diabetes"):
             # cost,rho=run_nonbinary(dataset_name,algorithm_name)
-            return [{"name":"kmeans cost", "value":"1990"},
+            return [{"name":"kmeans cost", "value":"6070"},
                     {"name":"proportionality (rho)", "value":"1.01"}]
         elif(dataset_name=="iris"):
             # cost,rho=run_nonbinary(dataset_name,algorithm_name)
-            return [{"name":"kmeans cost", "value":"1990"},
+            return [{"name":"kmeans cost", "value":"6070"},
                     {"name":"proportionality (rho)", "value":"1.01"}]
     
 if __name__ == '__main__':
