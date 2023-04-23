@@ -79,7 +79,7 @@ export default function Mitigate() {
                 }).map(algo => {
                     return (
                     <div key={algo.name} className="radio-button-background">
-                        <Radio key={algo.name} value={algo.name} className="radio-button" checked={algo.name === selectedAlgorithm.name} style={{marginRight: "10px"}}/>{algo.name}
+                        <Radio key={algo.name} value={algo.name} className="radio-button" checked={algo.name === selectedAlgorithm.name} style={{marginRight: "10px"}}/><b>{algo.name}</b>
                         <div style={{marginLeft: "25px", marginBottom: "10px"}}>
                         {algo.description}
                         </div>
@@ -94,7 +94,7 @@ export default function Mitigate() {
                 }).map(algo => {
                     return (
                     <div key={algo.name} className="radio-button-background">
-                        <Radio key={algo.name} value={algo.name} className="radio-button" checked={algo.name === selectedAlgorithm.name} style={{marginRight: "10px"}}/>{algo.name}
+                        <Radio key={algo.name} value={algo.name} className="radio-button" checked={algo.name === selectedAlgorithm.name} style={{marginRight: "10px"}}/><b>{algo.name}</b>
                         <div style={{marginLeft: "25px", marginBottom: "10px"}}>
                         {algo.description}
                         </div>

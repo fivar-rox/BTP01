@@ -76,7 +76,7 @@ export default function Data() {
                 datasets && datasets.map(data => {
                     return (
                         <div key={data.name} className="radio-button-background">
-                            <Radio key={data.name} value={data.name} className="radio-button" checked={data.name === selectedDataset.name} style={{marginRight: "10px"}}/>{data.name}
+                            <Radio key={data.name} value={data.name} className="radio-button" checked={data.name === selectedDataset.name} style={{marginRight: "10px"}}/><b>{data.name}</b>
                             <div style={{marginLeft: "25px"}}>
                             {data.description}
                             <br/>
@@ -90,7 +90,7 @@ export default function Data() {
                                 data.protectedAttributes && data.protectedAttributes.map(att => {
                                     return (
                                         <div key={att.attributeName}>
-                                        <b>{att.attributeName}</b>, privileged - {att.privileged}, unprivileged - {att.unprivileged} 
+                                        {att.attributeName}, privileged - {att.privileged}, unprivileged - {att.unprivileged} 
                                         <br/>
                                         </div>
                                     )
