@@ -15,6 +15,15 @@ export default function Compare() {
     const [results, setResults] = React.useState({});
     const [mitigatedResults, setMitigatedResults] = React.useState({});
     const [loading, setLoading] = React.useState(true);
+    const [metrics, setMetrics] = React.useState([]);
+
+    React.useEffect(() => {
+        fetch("/metrics").then((res) =>
+            res.json().then((data) => {
+                setMetrics(data.metrics)
+            })
+        );
+    },[])
 
     React.useEffect(() => {
         const originalRequestOptions = {
@@ -88,26 +97,29 @@ export default function Compare() {
             Mitigation: {algorithm.name}
             </div>
             <div style={{paddingLeft: 30, marginTop: 30}}>
-                
-                <b>{results[0].name}</b>
-                <br/>
-                <BarChart 
-                  width={190}
-                  height={180}
-                  margin={margin}
-                  data={[{text: 'Fair', value: mitigatedResults[0].value}, {text: 'Unfair', value: results[0].value}]}
-                  />
-                {results[0].description}
-                <br/>
-                <b>{results[1].name}</b>
-                <br/>
-                <BarChart 
-                  width={190}
-                  height={180}
-                  margin={margin}
-                  data={[{text: 'Fair', value: mitigatedResults[1].value}, {text: 'Unfair', value: results[1].value}]}
-                  />
-                {results[1].description}
+                {
+                    results && mitigatedResults && results.map((res,i) => {
+                        return(
+                            <>
+                            <b>{res.name}</b>
+                            <br/>
+                            {
+                                metrics && metrics.filter(met => {
+                                    return res.name === met.name    
+                                }).map(met => {
+                                    return met.description
+                                })
+                            }
+                            <br/>
+                            <BarChart width={190} height={180} margin={margin}  data={[{text: 'Fair', value: mitigatedResults[i].value}, {text: 'Unfair', value: res.value}]} />
+                            <br/>
+                            The calculated fair value is {mitigatedResults[i].value}
+                            <br/>
+                            <br/>
+                            </>
+                        )
+                    }) 
+                }
             </div>
             </>
             }

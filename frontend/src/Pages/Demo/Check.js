@@ -12,6 +12,15 @@ export default function Check() {
 
     const [results, setResults] = React.useState({});
     const [loading, setLoading] = React.useState(true);
+    const [metrics, setMetrics] = React.useState([]);
+
+    React.useEffect(() => {
+        fetch("/metrics").then((res) =>
+            res.json().then((data) => {
+                setMetrics(data.metrics)
+            })
+        );
+    },[])
 
     React.useEffect(() => {
         const requestOptions = {
@@ -77,25 +86,29 @@ export default function Check() {
             Mitigation: none
             </div>
             <div style={{paddingLeft: 30, marginTop: 30}}>
-                <b>{results[0].name}</b>
-                <br/>
-                <BarChart 
-                  width={190}
-                  height={180}
-                  margin={margin}
-                  data={[{text: 'Unfair', value: results[0].value}]}
-                  />
-                {results[0].description}
-                <br/>
-                <b>{results[1].name}</b>
-                <br/>
-                <BarChart 
-                  width={190}
-                  height={180}
-                  margin={margin}
-                  data={[{text: 'Unfair', value: results[1].value}]}
-                  />
-                {results[1].description}
+                {
+                    results && results.map(res => {
+                        return(
+                            <>
+                            <b>{res.name}</b>
+                            <br/>
+                            {
+                                metrics && metrics.filter(met => {
+                                    return res.name === met.name    
+                                }).map(met => {
+                                    return met.description
+                                })
+                            }
+                            <br/>
+                            <BarChart width={190} height={180} margin={margin} data={[{text: 'Unfair', value: res.value}]} />
+                            <br/>
+                            The calculated value is {res.value}
+                            <br/>
+                            <br/>
+                            </>
+                        )
+                    }) 
+                }
             </div>
             </>
             }
