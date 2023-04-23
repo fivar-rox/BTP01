@@ -6,7 +6,8 @@ from metrics.Rho import calc_rho_proportionality
 import argparse
 
 def run_algo(dataset_name,algorithm_name):
-    file_name = dataset_name
+    cost=0
+    rho=1
     if algorithm_name=="unfair":
         rho_value = 1.00001
 
@@ -14,7 +15,7 @@ def run_algo(dataset_name,algorithm_name):
         max_k = 7
         k_step = 1
         tot_exp = 1  # Number of Experiments ran for each k
-        parsed_data, kmeans_parsed_data = parse_data(file_name)
+        parsed_data, kmeans_parsed_data = parse_data(dataset_name)
         dim = len(kmeans_parsed_data[0])
 
         # Assertion makes sure we get identical copy of data in two formats
@@ -43,6 +44,9 @@ def run_algo(dataset_name,algorithm_name):
                 kmeansobj_kmeans = calc_kmeans_obj(parsed_data, kmeans_centers, k)
                 assert (abs(kmeansobj_kmeans - kmeans.inertia_) < 1000)
                 kmeans_rho = calc_rho_proportionality(all_clients, kmeans_centers, k, audit_centers=audit_centers)
+                print(kmeansobj_kmeans,kmeans_rho)
+                cost=kmeansobj_kmeans
+                Rho=kmeans_rho
 
     if algorithm_name=="Proportionality":  
         rho_value = 1.00001
@@ -51,7 +55,7 @@ def run_algo(dataset_name,algorithm_name):
         max_k = 7
         k_step = 1
         tot_exp = 1  # Number of Experiments ran for each k
-        parsed_data, kmeans_parsed_data = parse_data(file_name)
+        parsed_data, kmeans_parsed_data = parse_data(dataset_name)
         dim = len(kmeans_parsed_data[0])
 
         # Assertion makes sure we get identical copy of data in two formats
@@ -78,4 +82,10 @@ def run_algo(dataset_name,algorithm_name):
                 assert (len(greedy_center) == k)
                 kmeansobj_greedy = calc_kmeans_obj(parsed_data, greedy_center, k)
                 kmeans_rho_greedy = calc_rho_proportionality(all_clients, greedy_center, k, audit_centers=audit_centers)
+                print(kmeansobj_greedy,kmeans_rho_greedy)
+                cost=kmeansobj_greedy
+                Rho=kmeans_rho_greedy
+
+        
+    return cost,Rho
                 
