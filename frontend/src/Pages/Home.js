@@ -72,7 +72,7 @@ export default function Home() {
                     <div className="card">
                         <div className="card_content">
                         <h2 className="card_title">MCF</h2>
-                        <p className="card_text">Computes the optimized version of fairlet decomposition using minimum-cost flow.</p>
+                        <p className="card_text">Scalable algorithm for fair clustering, which can efficiently handle large datasets. uses techniques such as resampling, re-weighting, re-ranking, and parallel processing to ensure fairness in cluster compositions while addressing scalability challenges.</p>
                         <button className="btn card_btn">See More</button>
                         </div>
                     </div>
@@ -81,7 +81,7 @@ export default function Home() {
                     <div className="card">
                         <div className="card_content">
                         <h2 className="card_title">Scalable</h2>
-                        <p className="card_text"> Computes vanilla fairlet decomposition that ensures fair clusters. It might not give the optimal cost value.</p>
+                        <p className="card_text">This Algorithm proposes a fairness notion called proportionality fairness. Aims to ensure that each cluster contains a proportionate representation of different sensitive attribute groups. uses fairness constraints and optimization techniques to achieve proportionality fairness in cluster compositions.</p>
                         <button className="btn card_btn">See More</button>
                         </div>
                     </div>
@@ -91,7 +91,7 @@ export default function Home() {
                     <div className="card">
                         <div className="card_content">
                         <h2 className="card_title">Proportionality</h2>
-                        <p className="card_text">Computes the optimized version of fairlet decomposition using minimum-cost flow.</p>
+                        <p className="card_text">This Algorithm introduces the concept of fairlets, which are subsets of data points that can be used to achieve fairness in clustering. It proposes a two-step approach where initial clusters are formed using a base clustering algorithm, followed by refining the clusters to satisfy fairness constraints based on fairlets.</p>
                         <button className="btn card_btn">See More</button>
                         </div>
                     </div>
