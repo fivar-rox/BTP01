@@ -21,7 +21,6 @@ function App() {
           <Route path="/demo/check" element={<Check/>} />
           <Route path="/demo/mitigate" element={<Mitigate/>} />
           <Route path="/demo/compare" element={<Compare/>} />
-          <Route path="/resources" element={<Resources />} />
           <Route path="/apidocs" element={<APIdocs />} />
       </Routes>
       </BrowserRouter>

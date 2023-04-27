@@ -214,7 +214,7 @@ h1, h2, h3, h4, h5, h6 {
 .cards_item {
   display: flex;
   padding: 0.25rem;
-  height: 250px;
+  height: 300px;
   max-width: 300px;
   width:auto;
 } 

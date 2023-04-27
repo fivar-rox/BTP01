@@ -13,9 +13,8 @@ export default function Header() {
           <Nav className="me-auto ">
             <NavLink exact to="/" activeClassName="active" className="nav-link">Home</NavLink>
             <NavLink to="/demo" activeClassName="active" className="nav-link">Demo</NavLink>
-            <NavLink to="/resources" activeClassName="active" className="nav-link">Resources</NavLink>
             <NavLink to="/apidocs" activeClassName="active" className="nav-link">APIdocs</NavLink>
-            <NavLink to="https://github.com/shreya28302/BTP" activeClassName="active" className="nav-link">Github</NavLink>
+            <NavLink to="https://github.com/shreya28302/BTP" activeClassName="active" className="nav-link" target="_blank">Github</NavLink>
           </Nav>
         </Container>
       </Navbar>
